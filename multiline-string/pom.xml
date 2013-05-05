@@ -1,0 +1,57 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.adrianwalker</groupId>
+  <artifactId>multiline-string</artifactId>
+  <version>0.1.0</version>
+  <packaging>jar</packaging>
+  <name>Multiline String</name>
+    
+  <description>
+    Multiline string implementation using 
+    an annotation processor and javadoc
+  
+    Usage: mvn clean install
+  </description>
+ 
+  <url>http://www.adrianwalker.org</url>
+ 
+  <organization>
+    <name>adrianwalker.org</name>
+    <url>http://www.adrianwalker.org</url>
+  </organization>
+ 
+  <developers>
+    <developer>
+      <name>Adrian Walker</name>
+      <email>ady.walker@gmail.com</email>
+      <organization>adrianwalker.org</organization>
+      <organizationUrl>http://www.adrianwalker.org</organizationUrl>
+    </developer>
+  </developers>    
+    
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>sun.jdk</groupId>
+      <artifactId>tools</artifactId>
+      <version>LATEST</version>
+      <scope>system</scope>
+      <systemPath>${java.home}/../lib/tools.jar</systemPath>
+    </dependency>
+  </dependencies>
+</project>
