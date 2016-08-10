@@ -16,7 +16,7 @@ public final class MultilineStringUsage {
   */
   @Multiline
   private static String html;
-   
+  
   public static void main(final String[] args) {
     System.out.println(html);
   }

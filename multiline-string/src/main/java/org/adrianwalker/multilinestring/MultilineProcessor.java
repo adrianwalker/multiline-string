@@ -9,13 +9,10 @@ import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.annotation.processing.RoundEnvironment;
 import javax.annotation.processing.SupportedAnnotationTypes;
-import javax.annotation.processing.SupportedSourceVersion;
-import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.TypeElement;
 
 @SupportedAnnotationTypes({"org.adrianwalker.multilinestring.Multiline"})
-@SupportedSourceVersion(SourceVersion.RELEASE_6)
 public final class MultilineProcessor extends AbstractProcessor {
 
   private JavacElements elementUtils;
@@ -23,7 +20,9 @@ public final class MultilineProcessor extends AbstractProcessor {
 
   @Override
   public void init(final ProcessingEnvironment procEnv) {
+
     super.init(procEnv);
+
     JavacProcessingEnvironment javacProcessingEnv = (JavacProcessingEnvironment) procEnv;
     this.elementUtils = javacProcessingEnv.getElementUtils();
     this.maker = TreeMaker.instance(javacProcessingEnv.getContext());
