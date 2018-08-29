@@ -31,15 +31,17 @@ public final class MultilineProcessor extends AbstractProcessor {
   @Override
   public boolean process(final Set<? extends TypeElement> annotations, final RoundEnvironment roundEnv) {
 
-    Set<? extends Element> fields = roundEnv.getElementsAnnotatedWith(Multiline.class);
-    for (Element field : fields) {
-      String docComment = elementUtils.getDocComment(field);
-      if (null != docComment) {
-        JCTree.JCVariableDecl fieldNode = (JCTree.JCVariableDecl) elementUtils.getTree(field);
-        fieldNode.init = maker.Literal(docComment);
-      }
-    }
+    roundEnv.getElementsAnnotatedWith(Multiline.class).forEach(field -> processField(field));
 
     return true;
+  }
+
+  private void processField(final Element field) {
+
+    String docComment = elementUtils.getDocComment(field);
+    if (null != docComment) {
+      JCTree.JCVariableDecl fieldNode = (JCTree.JCVariableDecl) elementUtils.getTree(field);
+      fieldNode.init = maker.Literal(docComment);
+    }
   }
 }
